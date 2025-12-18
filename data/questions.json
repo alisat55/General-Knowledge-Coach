@@ -1,0 +1,74 @@
+[
+  {
+    "topic": "History",
+    "question": "In which year did World War II end?",
+    "options": ["1918", "1945", "1939", "1963"],
+    "answer": "1945"
+  },
+  {
+    "topic": "History",
+    "question": "Who was the first President of the United States?",
+    "options": ["George Washington", "Abraham Lincoln", "Thomas Jefferson", "John Adams"],
+    "answer": "George Washington"
+  },
+  {
+    "topic": "Math",
+    "question": "What is the value of π (pi) approximately?",
+    "options": ["2.14", "3.14", "1.41", "2.71"],
+    "answer": "3.14"
+  },
+  {
+    "topic": "Math",
+    "question": "The derivative of x² is:",
+    "options": ["x", "2x", "x²", "2"],
+    "answer": "2x"
+  },
+  {
+    "topic": "Physics",
+    "question": "Who formulated the three laws of motion?",
+    "options": ["Albert Einstein", "Isaac Newton", "Niels Bohr", "Galileo Galilei"],
+    "answer": "Isaac Newton"
+  },
+  {
+    "topic": "Chemistry",
+    "question": "What is the chemical symbol for gold?",
+    "options": ["Ag", "Au", "Gd", "Go"],
+    "answer": "Au"
+  },
+  {
+    "topic": "Art",
+    "question": "Who painted the Mona Lisa?",
+    "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    "answer": "Leonardo da Vinci"
+  },
+  {
+    "topic": "Capitals",
+    "question": "What is the capital of Japan?",
+    "options": ["Kyoto", "Osaka", "Tokyo", "Nagoya"],
+    "answer": "Tokyo"
+  },
+  {
+    "topic": "Geography",
+    "question": "The river Nile flows primarily through which continent?",
+    "options": ["Asia", "South America", "Europe", "Africa"],
+    "answer": "Africa"
+  },
+  {
+    "topic": "Music",
+    "question": "Who composed 'Für Elise'?",
+    "options": ["Mozart", "Beethoven", "Chopin", "Bach"],
+    "answer": "Beethoven"
+  },
+  {
+    "topic": "Cuisine",
+    "question": "Sushi is most closely associated with which country?",
+    "options": ["China", "Japan", "Thailand", "South Korea"],
+    "answer": "Japan"
+  },
+  {
+    "topic": "Current Events",
+    "question": "This is a placeholder current events question. What should you do with it?",
+    "options": ["Keep forever", "Update it regularly", "Delete all topics", "Turn it into math"],
+    "answer": "Update it regularly"
+  }
+]
