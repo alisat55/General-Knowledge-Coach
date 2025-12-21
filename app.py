@@ -112,6 +112,8 @@ def start_initial_quiz(n=DEFAULT_INITIAL_QUIZ_N):
         "i": 0,
         "score": 0,
         "done": False,
+        "answered": False,
+        "last_feedback": None
     }
 
 def start_daily_practice(n=DEFAULT_DAILY_PRACTICE_N):
@@ -120,6 +122,8 @@ def start_daily_practice(n=DEFAULT_DAILY_PRACTICE_N):
         "i": 0,
         "score": 0,
         "done": False,
+        "answered": False,
+        "last_feedback": None
     }
 
 def record_answer(topic: str, is_correct: bool):
@@ -154,29 +158,59 @@ if page == "Initial Quiz":
     if st.button("🔁 Restart Initial Quiz"):
         start_initial_quiz(n)
 
-    quiz = st.session_state.initial_quiz
+quiz = st.session_state.initial_quiz
 
-    if quiz["done"]:
-        st.success(f"Quiz complete! Score: {quiz['score']} / {len(quiz['questions'])}")
-        st.info("Go to **Learning Hub** to see weak topics, or **Daily Practice** for personalization.")
-    else:
-        q = quiz["questions"][quiz["i"]]
-        st.write(f"**Topic:** {q['topic']}")
-        st.subheader(f"Q{quiz['i'] + 1}. {q['question']}")
-        choice = st.radio("Choose an answer:", q["options"], key=f"init_choice_{quiz['i']}")
+if quiz["done"]:
+    st.success(f"Quiz complete! Score: {quiz['score']} / {len(quiz['questions'])}")
+    st.info("Go to **Learning Hub** to see weak topics, or **Daily Practice** for personalization.")
+else:
+    q = quiz["questions"][quiz["i"]]
+    st.write(f"**Topic:** {q['topic']}")
+    st.subheader(f"Q{quiz['i'] + 1}. {q['question']}")
 
+    # Disable changing after submission (helps UX)
+    choice = st.radio(
+        "Choose an answer:",
+        q["options"],
+        key=f"init_choice_{quiz['i']}",
+        disabled=quiz["answered"]
+    )
+
+    # SHOW FEEDBACK IF ALREADY ANSWERED
+    if quiz.get("last_feedback"):
+        kind, msg = quiz["last_feedback"]
+        if kind == "success":
+            st.success(msg)
+        else:
+            st.error(msg)
+
+    # STEP 1: SUBMIT
+    if not quiz["answered"]:
         if st.button("Submit Answer"):
             correct = (choice == q["answer"])
             record_answer(q["topic"], correct)
+
             if correct:
                 quiz["score"] += 1
-                st.success("✅ Correct!")
+                quiz["last_feedback"] = ("success", "✅ Correct!")
             else:
-                st.error(f"❌ Incorrect. Correct answer: **{q['answer']}**")
+                quiz["last_feedback"] = ("error", f"❌ Incorrect. Correct answer: **{q['answer']}**")
 
+            quiz["answered"] = True
+            st.rerun()
+
+    # STEP 2: NEXT
+    else:
+        if st.button("Next Question ➡️"):
             quiz["i"] += 1
+            quiz["answered"] = False
+            quiz["last_feedback"] = None
+
             if quiz["i"] >= len(quiz["questions"]):
                 quiz["done"] = True
+
+            st.rerun()
+
 
 elif page == "Learning Hub":
     st.header("📚 Learning Hub")
@@ -213,50 +247,51 @@ elif page == "Learning Hub":
             f"Selected: **{topic}**"
         )
 
-elif page == "Daily Practice":
-    st.header("📆 Daily Practice (Personalized)")
+prac = st.session_state.daily_practice
 
-    stats = st.session_state.global_stats
-    if sum(stats["topic_total"].values()) == 0:
-        st.info("Take the **Initial Quiz** first so I can personalize your daily practice.")
-    else:
-        weak = weakest_topics(stats, threshold=0.7, k=3)
-        if weak:
-            st.write("Today’s practice focuses mostly on:")
-            st.write(", ".join(f"**{t}**" for t in weak))
-            st.caption("Target mix: ~70% weak topics, ~30% other topics.")
+if prac["done"]:
+    st.success(f"Practice complete! Score: {prac['score']} / {len(prac['questions'])}")
+    st.button("Start another session", on_click=start_daily_practice, kwargs={"n": n})
+else:
+    q = prac["questions"][prac["i"]]
+    st.write(f"**Topic:** {q['topic']}")
+    st.subheader(f"Q{prac['i'] + 1}. {q['question']}")
+
+    choice = st.radio(
+        "Choose an answer:",
+        q["options"],
+        key=f"prac_choice_{prac['i']}",
+        disabled=prac["answered"]
+    )
+
+    if prac.get("last_feedback"):
+        kind, msg = prac["last_feedback"]
+        if kind == "success":
+            st.success(msg)
         else:
-            st.write("You’re strong across topics — here’s a mixed set for variety.")
+            st.error(msg)
 
-        n = st.slider("Number of practice questions:", 3, 15, DEFAULT_DAILY_PRACTICE_N)
+    if not prac["answered"]:
+        if st.button("Submit Practice Answer"):
+            correct = (choice == q["answer"])
+            record_answer(q["topic"], correct)
 
-        if "daily_practice" not in st.session_state:
-            st.button("Start practice", on_click=start_daily_practice, kwargs={"n": n})
-        else:
-            if st.button("🔁 Restart practice"):
-                start_daily_practice(n)
-
-        if "daily_practice" in st.session_state:
-            prac = st.session_state.daily_practice
-
-            if prac["done"]:
-                st.success(f"Practice complete! Score: {prac['score']} / {len(prac['questions'])}")
-                st.button("Start another session", on_click=start_daily_practice, kwargs={"n": n})
+            if correct:
+                prac["score"] += 1
+                prac["last_feedback"] = ("success", "✅ Correct!")
             else:
-                q = prac["questions"][prac["i"]]
-                st.write(f"**Topic:** {q['topic']}")
-                st.subheader(f"Q{prac['i'] + 1}. {q['question']}")
-                choice = st.radio("Choose an answer:", q["options"], key=f"prac_choice_{prac['i']}")
+                prac["last_feedback"] = ("error", f"❌ Incorrect. Correct answer: **{q['answer']}**")
 
-                if st.button("Submit Practice Answer"):
-                    correct = (choice == q["answer"])
-                    record_answer(q["topic"], correct)
-                    if correct:
-                        prac["score"] += 1
-                        st.success("✅ Correct!")
-                    else:
-                        st.error(f"❌ Incorrect. Correct answer: **{q['answer']}**")
+            prac["answered"] = True
+            st.rerun()
+    else:
+        if st.button("Next Question ➡️"):
+            prac["i"] += 1
+            prac["answered"] = False
+            prac["last_feedback"] = None
 
-                    prac["i"] += 1
-                    if prac["i"] >= len(prac['questions']):
-                        prac["done"] = True
+            if prac["i"] >= len(prac["questions"]):
+                prac["done"] = True
+
+            st.rerun()
+
