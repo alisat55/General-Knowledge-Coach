@@ -1,0 +1,11 @@
+{"id":"geography_easy_000001","topic":"Geography","difficulty":"easy","question":"Which is the largest continent by land area?","options":["Africa","Asia","Europe","North America"],"answer":"Asia","explanation":"Asia is the largest continent by land area.","tags":["continents"]}
+
+{"id":"geography_easy_000002","topic":"Geography","difficulty":"easy","question":"Which ocean is the largest on Earth?","options":["Atlantic Ocean","Indian Ocean","Pacific Ocean","Arctic Ocean"],"answer":"Pacific Ocean","explanation":"The Pacific Ocean is the largest ocean on Earth.","tags":["oceans"]}
+
+{"id":"geography_medium_000001","topic":"Geography","difficulty":"medium","question":"Which country has the longest coastline in the world?","options":["Australia","Canada","Russia","Indonesia"],"answer":"Canada","explanation":"Canada has the longest coastline in the world due to its many islands and bays.","tags":["countries","coastlines"]}
+
+{"id":"geography_medium_000002","topic":"Geography","difficulty":"medium","question":"The Andes mountain range is primarily located on which continent?","options":["Asia","South America","North America","Europe"],"answer":"South America","explanation":"The Andes run along the western edge of South America.","tags":["mountain_ranges"]}
+
+{"id":"geography_hard_000001","topic":"Geography","difficulty":"hard","question":"Which river is traditionally considered the longest in the world?","options":["Amazon River","Nile River","Yangtze River","Mississippi River"],"answer":"Nile River","explanation":"The Nile River has traditionally been considered the longest river in the world.","tags":["rivers"]}
+
+{"id":"geography_hard_000002","topic":"Geography","difficulty":"hard","question":"Which country is home to the Danakil Depression, one of the hottest places on Earth?","options":["Ethiopia","Sudan","Saudi Arabia","Djibouti"],"answer":"Ethiopia","explanation":"The Danakil Depression is located primarily in Ethiopia.","tags":["extreme_environments"]}
