@@ -1,0 +1,11 @@
+{"id":"cuisine_easy_000001","topic":"Cuisine","difficulty":"easy","question":"Pizza is most closely associated with which country?","options":["Italy","France","Spain","Greece"],"answer":"Italy","explanation":"Pizza originated in Italy, especially associated with Naples.","tags":["europe","italian_cuisine"]}
+
+{"id":"cuisine_easy_000002","topic":"Cuisine","difficulty":"easy","question":"Sushi is a traditional dish from which country?","options":["Japan","China","South Korea","Thailand"],"answer":"Japan","explanation":"Sushi is strongly associated with Japanese cuisine.","tags":["asia","japanese_cuisine"]}
+
+{"id":"cuisine_medium_000001","topic":"Cuisine","difficulty":"medium","question":"Paella is traditionally associated with which Spanish region?","options":["Valencia","Catalonia","Andalusia","Galicia"],"answer":"Valencia","explanation":"Paella originated in the Valencia region of Spain.","tags":["spain","regional_cuisine"]}
+
+{"id":"cuisine_medium_000002","topic":"Cuisine","difficulty":"medium","question":"Which ingredient is essential in classic pesto alla genovese?","options":["Basil","Cilantro","Parsley","Rosemary"],"answer":"Basil","explanation":"Traditional pesto alla genovese uses basil as the primary herb.","tags":["italy","ingredients"]}
+
+{"id":"cuisine_hard_000001","topic":"Cuisine","difficulty":"hard","question":"Which ingredient is traditionally used to make miso?","options":["Soybeans","Chickpeas","Lentils","Black beans"],"answer":"Soybeans","explanation":"Miso is a fermented paste typically made from soybeans (often with rice or barley).","tags":["japan","fermentation"]}
+
+{"id":"cuisine_hard_000002","topic":"Cuisine","difficulty":"hard","question":"Which rice variety is most commonly used for risotto?","options":["Arborio","Basmati","Jasmine","Long-grain white rice"],"answer":"Arborio","explanation":"Arborio rice is a common risotto rice due to its high starch content.","tags":["italy","rice"]}
