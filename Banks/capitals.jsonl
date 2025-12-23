@@ -1,0 +1,11 @@
+{"id":"capitals_easy_000001","topic":"Capitals","difficulty":"easy","question":"What is the capital of France?","options":["Paris","Lyon","Marseille","Nice"],"answer":"Paris","explanation":"Paris is the capital city of France.","tags":["europe","western_europe"]}
+
+{"id":"capitals_easy_000002","topic":"Capitals","difficulty":"easy","question":"What is the capital of Japan?","options":["Tokyo","Osaka","Kyoto","Nagoya"],"answer":"Tokyo","explanation":"Tokyo is the capital and largest city of Japan.","tags":["asia","east_asia"]}
+
+{"id":"capitals_medium_000001","topic":"Capitals","difficulty":"medium","question":"What is the capital of New Zealand?","options":["Auckland","Wellington","Christchurch","Hamilton"],"answer":"Wellington","explanation":"Wellington is the capital city of New Zealand.","tags":["oceania"]}
+
+{"id":"capitals_medium_000002","topic":"Capitals","difficulty":"medium","question":"What is the capital of Morocco?","options":["Casablanca","Rabat","Marrakesh","Fez"],"answer":"Rabat","explanation":"Rabat is the political capital of Morocco.","tags":["africa","north_africa"]}
+
+{"id":"capitals_hard_000001","topic":"Capitals","difficulty":"hard","question":"What is the capital of Kazakhstan?","options":["Astana","Almaty","Tashkent","Bishkek"],"answer":"Astana","explanation":"Astana has been the capital of Kazakhstan since 1997.","tags":["central_asia"]}
+
+{"id":"capitals_hard_000002","topic":"Capitals","difficulty":"hard","question":"What is the capital of Suriname?","options":["Georgetown","Paramaribo","Cayenne","Bridgetown"],"answer":"Paramaribo","explanation":"Paramaribo is the capital and largest city of Suriname.","tags":["south_america"]}
