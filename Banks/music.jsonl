@@ -1,0 +1,11 @@
+{"id":"music_easy_000001","topic":"Music","difficulty":"easy","question":"Who composed 'Für Elise'?","options":["Ludwig van Beethoven","Wolfgang Amadeus Mozart","Johann Sebastian Bach","Frédéric Chopin"],"answer":"Ludwig van Beethoven","explanation":"'Für Elise' is a well-known piano piece by Ludwig van Beethoven.","tags":["classical","composer"]}
+
+{"id":"music_easy_000002","topic":"Music","difficulty":"easy","question":"Which composer is strongly associated with the Baroque period?","options":["Johann Sebastian Bach","Claude Debussy","Igor Stravinsky","Franz Schubert"],"answer":"Johann Sebastian Bach","explanation":"Johann Sebastian Bach is one of the most famous Baroque composers.","tags":["baroque","music_history"]}
+
+{"id":"music_medium_000001","topic":"Music","difficulty":"medium","question":"Which composer wrote 'The Four Seasons'?","options":["Antonio Vivaldi","Joseph Haydn","Richard Wagner","Johannes Brahms"],"answer":"Antonio Vivaldi","explanation":"'The Four Seasons' is a set of violin concertos by Antonio Vivaldi.","tags":["baroque","concertos"]}
+
+{"id":"music_medium_000002","topic":"Music","difficulty":"medium","question":"Which composer wrote the ballet 'The Nutcracker'?","options":["Pyotr Ilyich Tchaikovsky","Sergei Rachmaninoff","Nikolai Rimsky-Korsakov","Dmitri Shostakovich"],"answer":"Pyotr Ilyich Tchaikovsky","explanation":"'The Nutcracker' is a famous ballet by Pyotr Ilyich Tchaikovsky.","tags":["romantic","ballet"]}
+
+{"id":"music_hard_000001","topic":"Music","difficulty":"hard","question":"Which composer is most closely associated with the twelve-tone technique (serialism)?","options":["Arnold Schoenberg","Gustav Mahler","Maurice Ravel","Jean Sibelius"],"answer":"Arnold Schoenberg","explanation":"Arnold Schoenberg developed the twelve-tone (dodecaphonic) method of composition.","tags":["20th_century","modernism"]}
+
+{"id":"music_hard_000002","topic":"Music","difficulty":"hard","question":"Which composer wrote the opera 'Wozzeck'?","options":["Alban Berg","Giuseppe Verdi","Giacomo Puccini","Richard Strauss"],"answer":"Alban Berg","explanation":"'Wozzeck' is an early 20th-century opera by Alban Berg.","tags":["opera","20th_century"]}
