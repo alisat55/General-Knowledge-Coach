@@ -1,0 +1,11 @@
+{"id":"history_easy_000001","topic":"History","difficulty":"easy","question":"Who was the first President of the United States?","options":["George Washington","Abraham Lincoln","Thomas Jefferson","John Adams"],"answer":"George Washington","explanation":"George Washington served as the first President of the United States from 1789 to 1797.","tags":["us_history","presidents"]}
+
+{"id":"history_easy_000002","topic":"History","difficulty":"easy","question":"Which war was fought between the North and South regions of the United States?","options":["World War I","American Civil War","Revolutionary War","Vietnam War"],"answer":"American Civil War","explanation":"The American Civil War was fought from 1861 to 1865.","tags":["us_history","civil_war"]}
+
+{"id":"history_medium_000001","topic":"History","difficulty":"medium","question":"In which year did World War II end?","options":["1939","1942","1945","1950"],"answer":"1945","explanation":"World War II ended in 1945 after the surrender of Germany and Japan.","tags":["world_war_ii","20th_century"]}
+
+{"id":"history_medium_000002","topic":"History","difficulty":"medium","question":"Which empire was ruled by Julius Caesar?","options":["Greek Empire","Roman Empire","Ottoman Empire","Persian Empire"],"answer":"Roman Empire","explanation":"Julius Caesar was a Roman general and statesman during the late Roman Republic.","tags":["ancient_rome","roman_history"]}
+
+{"id":"history_hard_000001","topic":"History","difficulty":"hard","question":"The Treaty of Westphalia (1648) ended which major European conflict?","options":["Thirty Years' War","Hundred Years' War","Napoleonic Wars","Seven Years' War"],"answer":"Thirty Years' War","explanation":"The Treaty of Westphalia ended the Thirty Years' War and reshaped European politics.","tags":["treaties","early_modern_history"]}
+
+{"id":"history_hard_000002","topic":"History","difficulty":"hard","question":"Which crisis directly led to the establishment of the French Fifth Republic in 1958?","options":["French Revolution","July Revolution","May 1968 Protests","Algerian Crisis"],"answer":"Algerian Crisis","explanation":"The Algerian Crisis destabilized the Fourth Republic and led to the creation of the Fifth Republic.","tags":["france","political_history"]}
