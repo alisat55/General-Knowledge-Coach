@@ -1,0 +1,11 @@
+{"id":"art_easy_000001","topic":"Art","difficulty":"easy","question":"Who painted the Mona Lisa?","options":["Leonardo da Vinci","Michelangelo","Raphael","Donatello"],"answer":"Leonardo da Vinci","explanation":"The Mona Lisa was painted by Leonardo da Vinci.","tags":["renaissance","painting"]}
+
+{"id":"art_easy_000002","topic":"Art","difficulty":"easy","question":"Which art movement is associated with Claude Monet?","options":["Impressionism","Cubism","Surrealism","Baroque"],"answer":"Impressionism","explanation":"Claude Monet was a founder of Impressionism.","tags":["impressionism"]}
+
+{"id":"art_medium_000001","topic":"Art","difficulty":"medium","question":"Which artist painted 'The Starry Night'?","options":["Vincent van Gogh","Paul Cézanne","Edgar Degas","Paul Gauguin"],"answer":"Vincent van Gogh","explanation":"'The Starry Night' was painted by Vincent van Gogh in 1889.","tags":["post_impressionism"]}
+
+{"id":"art_medium_000002","topic":"Art","difficulty":"medium","question":"Which art movement is characterized by geometric shapes and multiple perspectives?","options":["Cubism","Realism","Romanticism","Rococo"],"answer":"Cubism","explanation":"Cubism emphasizes geometric forms and multiple viewpoints.","tags":["cubism","modern_art"]}
+
+{"id":"art_hard_000001","topic":"Art","difficulty":"hard","question":"Which artist is known for pioneering the Suprematist movement?","options":["Kazimir Malevich","Wassily Kandinsky","Piet Mondrian","Marc Chagall"],"answer":"Kazimir Malevich","explanation":"Kazimir Malevich founded Suprematism, focusing on basic geometric forms.","tags":["suprematism","abstract_art"]}
+
+{"id":"art_hard_000002","topic":"Art","difficulty":"hard","question":"Which painting technique involves applying pigment to wet plaster?","options":["Fresco","Tempera","Encaustic","Oil painting"],"answer":"Fresco","explanation":"Fresco painting involves applying pigment to wet plaster.","tags":["techniques","painting_methods"]}
