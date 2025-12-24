@@ -9,7 +9,7 @@ import streamlit as st
 # CONFIG
 # -----------------------
 APP_TITLE = "General Knowledge Trainer"
-BANKS_DIR = Path("data/banks")
+BANKS_DIR = Path("Data/Banks")
 
 WEAK_THRESHOLD = 0.7
 WEAK_MAX_TOPICS = 3
