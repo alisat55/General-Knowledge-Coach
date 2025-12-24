@@ -9,6 +9,8 @@ import streamlit as st
 # CONFIG
 # -----------------------
 APP_TITLE = "General Knowledge Trainer"
+
+# NOTE: You said your folders are capitalized as Data/Banks
 BANKS_DIR = Path("Data/Banks")
 
 WEAK_THRESHOLD = 0.7
@@ -35,7 +37,7 @@ def load_banks_from_jsonl(banks_dir: Path):
     if not banks_dir.exists():
         st.error(
             f"Missing folder: {banks_dir}\n\n"
-            "Create files like data/banks/history.jsonl, data/banks/geography.jsonl, etc."
+            "Create files like Data/Banks/history.jsonl, Data/Banks/geography.jsonl, etc."
         )
         st.stop()
 
@@ -43,7 +45,7 @@ def load_banks_from_jsonl(banks_dir: Path):
     if not bank_files:
         st.error(
             f"No .jsonl files found in {banks_dir}.\n\n"
-            "Create at least one bank file, e.g. data/banks/history.jsonl"
+            "Create at least one bank file, e.g. Data/Banks/history.jsonl"
         )
         st.stop()
 
@@ -69,7 +71,7 @@ def load_banks_from_jsonl(banks_dir: Path):
                     errors.append(f"{fpath.name}:{lineno} missing keys: {sorted(missing)}")
                     continue
 
-                # Validate types / values
+                # Validate difficulty
                 if q["difficulty"] not in DIFFICULTIES:
                     errors.append(
                         f"{fpath.name}:{lineno} invalid difficulty '{q['difficulty']}'. "
@@ -77,14 +79,17 @@ def load_banks_from_jsonl(banks_dir: Path):
                     )
                     continue
 
+                # Validate options
                 if not isinstance(q["options"], list) or len(q["options"]) < 2:
                     errors.append(f"{fpath.name}:{lineno} options must be a list with >= 2 items.")
                     continue
 
+                # Validate answer in options
                 if q["answer"] not in q["options"]:
                     errors.append(f"{fpath.name}:{lineno} answer must be one of the options.")
                     continue
 
+                # Validate unique id
                 if q["id"] in ids_seen:
                     errors.append(f"{fpath.name}:{lineno} duplicate id '{q['id']}'.")
                     continue
@@ -94,10 +99,10 @@ def load_banks_from_jsonl(banks_dir: Path):
 
     if errors:
         st.error("❌ Question bank validation failed. Fix these issues and redeploy:")
-        for e in errors[:30]:
+        for e in errors[:50]:
             st.write(f"- {e}")
-        if len(errors) > 30:
-            st.write(f"... and {len(errors) - 30} more.")
+        if len(errors) > 50:
+            st.write(f"... and {len(errors) - 50} more.")
         st.stop()
 
     return all_questions
@@ -165,12 +170,10 @@ def personalized_questions(n: int):
 
     if remaining > 0:
         pool = other_q if other_q else ALL_QUESTIONS
-        # avoid duplicates
         pool = [q for q in pool if q not in selected]
         if pool:
             selected += random.sample(pool, k=min(remaining, len(pool)))
 
-    # top up if still short
     if len(selected) < n:
         pool = [q for q in ALL_QUESTIONS if q not in selected]
         if pool:
@@ -198,7 +201,6 @@ def build_diagnostic_exam():
             if candidates:
                 picked.append(random.choice(candidates))
 
-        # If missing any difficulty bucket, top up from all topic questions
         topic_all = []
         for d in DIFFICULTIES:
             topic_all.extend(BY_TOPIC_DIFFICULTY[topic].get(d, []))
@@ -224,6 +226,16 @@ def render_feedback(feedback):
         st.success(msg)
     else:
         st.error(msg)
+
+def shuffled_options(q: dict):
+    """
+    Deterministically shuffle options based on question id so Streamlit reruns
+    don't change the option order mid-question.
+    """
+    opts = list(q["options"])
+    rnd = random.Random(q["id"])
+    rnd.shuffle(opts)
+    return opts
 
 def start_exam_session(kind: str, questions: list):
     """
@@ -258,9 +270,10 @@ def show_question_flow(session_key: str, title_prefix: str):
     st.write(f"**Topic:** {q['topic']} • **Difficulty:** {q['difficulty'].title()}")
     st.subheader(f"Q{sess['i'] + 1}. {q['question']}")
 
+    display_opts = shuffled_options(q)
     choice = st.radio(
         "Choose an answer:",
-        q["options"],
+        display_opts,
         key=f"{session_key}_choice_{sess['i']}",
         disabled=sess["answered"]
     )
@@ -318,7 +331,6 @@ if page == "Diagnostic Exam":
     st.header("🧪 Diagnostic Exam")
     st.write("Includes **1 easy + 1 medium + 1 hard** question per topic.")
 
-    # Optional: show counts per topic/difficulty
     with st.expander("Show bank coverage (counts per topic/difficulty)"):
         for topic in TOPICS:
             st.write(
@@ -341,7 +353,6 @@ if page == "Diagnostic Exam":
 
         show_question_flow("diagnostic", "Diagnostic Exam")
 
-        # If finished, guide user to learning hub
         if st.session_state["diagnostic"]["done"]:
             st.info("Next: visit **Learning Hub** to see your weakest topics and start improving.")
 
@@ -417,6 +428,7 @@ elif page == "Daily Practice":
                 st.caption("Flow: Submit → Next Question")
 
             show_question_flow("practice", "Daily Practice")
+
 
 
 
